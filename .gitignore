@@ -48,3 +48,4 @@ target/*
 .settings/*
 .attach_pid*
 /target
+/.classpath
