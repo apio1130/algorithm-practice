@@ -10,7 +10,7 @@ import java.util.Map.Entry;
  * <h3>완주하지 못한 선수</h3>
  * <h4>문제 설명</h4> 수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을
  * 완주하였습니다. 마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이
- * 주어질 때, 완주하지 못한 선수의 이름을 return 하도록 solution 함수를 작성해주세요.<br/>
+ * 주어질 때, 완주하지 못한 선수의 이름을 return 하도록 solution 함수를 작성해주세요.<br>
  * 
  * <h4>제한사항</h4>
  * <ul>
@@ -20,7 +20,8 @@ import java.util.Map.Entry;
  * <li>참가자 중에는 동명이인이 있을 수 있습니다.</li>
  * </ul>
  * <h4>입출력 예</h4>
- * <table>
+ * <table border="1">
+ * <caption>입출력</caption>
  * <tr>
  * <td>participant</td>
  * <td>completion</td>
@@ -42,14 +43,14 @@ import java.util.Map.Entry;
  * <td>"mislav"</td>
  * </tr>
  * </table>
- * <h4>입출력 예 설명</h4> 예제 #1<br/>
- * leo는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.<br/>
+ * <h4>입출력 예 설명</h4> 예제 #1<br>
+ * leo는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.<br>
  * 
- * 예제 #2<br/>
- * vinko는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.<br/>
+ * 예제 #2<br>
+ * vinko는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.<br>
  * 
- * 예제 #3<br/>
- * mislav는 참여자 명단에는 두 명이 있지만, 완주자 명단에는 한 명밖에 없기 때문에 한명은 완주하지 못했습니다.<br/>
+ * 예제 #3<br>
+ * mislav는 참여자 명단에는 두 명이 있지만, 완주자 명단에는 한 명밖에 없기 때문에 한명은 완주하지 못했습니다.<br>
  */
 class Solution {
 	public String solution(String[] participant, String[] completion) {
