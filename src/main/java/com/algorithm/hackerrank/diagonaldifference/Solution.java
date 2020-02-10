@@ -52,7 +52,7 @@ class Result {
  * 대각선 차이 구하기
  *
  */
-public class Solution {
+class Solution {
 	public static void main(String[] args) throws IOException {
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
