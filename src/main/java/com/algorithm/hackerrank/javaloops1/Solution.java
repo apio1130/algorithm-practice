@@ -1,4 +1,4 @@
-package com.algorithm.hackerrank.javaloopsi;
+package com.algorithm.hackerrank.javaloops1;
 
 import java.util.Scanner;
 import java.util.stream.IntStream;
