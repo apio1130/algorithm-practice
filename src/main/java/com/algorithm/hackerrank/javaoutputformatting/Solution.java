@@ -2,9 +2,20 @@ package com.algorithm.hackerrank.javaoutputformatting;
 import java.util.Scanner;
 
 /**
+ * 
+ * 
+ * Test Case
+ * 1) input 
  * java 100
  * cpp 65
  * python 50
+ * 
+ * 2) Expected Output
+ * ================================
+ * java           100 
+ * cpp            065 
+ * python         050 
+ * ================================
  *
  */
 class Solution {
