@@ -2,6 +2,10 @@ package com.algorithm.hackerrank.javaloops2;
 
 import java.util.Scanner;
 
+/**
+ * Java Loops II
+ *
+ */
 class Solution {
 	public static void main(String[] argh) {
 		Scanner in = new Scanner(System.in);
@@ -10,31 +14,23 @@ class Solution {
 			int a = in.nextInt();
 			int b = in.nextInt();
 			int n = in.nextInt();
-			System.out.println(calculate(a, b, n, 1));
+			System.out.println(calculate(a, b, n));
 		}
 		in.close();
 	}
 
-	private static String calculate(int a, int b, int n, int limit) {
-		int sum = 0;
-		sum = a + b * (calcBinary(limit));
-		
-		if (n == limit) {
-			return String.valueOf(sum);
-		}
-		
-		return sum + " " + calculate(a, b, n, ++limit);
-	}
-	
-	private static int calcBinary(int n) {
-		int sum = 1;
-		
-		for (int i = 1; i <= n; i++) {
-			if (i > 1) {
-				sum += 2 << (i - 2);
+	private static String calculate(int a, int b, int n) {
+		StringBuilder sb = new StringBuilder();
+		int sum = a;
+
+		for (int i = 0; i < n; i++) {
+			sum += b * (1 << i);
+			if (i > 0) {
+				sb.append(" ");
 			}
+			sb.append(sum);
 		}
-		
-		return sum;
+
+		return sb.toString();
 	}
 }
