@@ -19,12 +19,12 @@ class Solution {
         int currentWeight = 0;
         int truck = 0;
         do {
-            // push 트럭
             if (trucks.isEmpty()) {
                 answer+= bridge_length;
                 break;
             }
             
+            // peek 트럭
             answer++;
             int temp = trucks.peek();
             if (currentWeight + temp <= weight) {
@@ -35,7 +35,7 @@ class Solution {
                 bridge.add(0);
             }
             
-            // pop 트럭
+            // poll 트럭
             if (bridge.size() == bridge_length) {
                 int finish = bridge.poll();
                 currentWeight -= finish; 
