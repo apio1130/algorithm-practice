@@ -24,9 +24,7 @@ class Solution {
         getLevelOrders(level + 1, map, root.right);
 
         List<List<Integer>> result = new LinkedList<>();
-        map.entrySet().forEach(i -> {
-            result.add(i.getValue());
-        });
+        map.entrySet().forEach(i -> result.add(i.getValue()));
 
         return result;
     }
