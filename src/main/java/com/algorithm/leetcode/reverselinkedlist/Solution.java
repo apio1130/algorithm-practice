@@ -8,6 +8,9 @@ import java.util.Stack;
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
+        if (head == null) {
+            return null;
+        }
 
         Stack<ListNode> stack = new Stack<>();
         stack.push(head);
