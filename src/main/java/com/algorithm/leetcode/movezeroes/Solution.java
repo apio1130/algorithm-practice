@@ -8,17 +8,15 @@ import java.util.Arrays;
  */
 class Solution {
     public void moveZeroes(int[] nums) {
-        int[] result = new int[nums.length];
-        int idx = 0; 
+        int idx = 0;
         for (int i = 0; i < nums.length; i++) {
-            int numb = nums[i];
-            if (numb != 0) {
-                result[idx] = numb;
+            if (nums[i] != 0) {
+                int temp = nums[idx];
+                nums[idx] = nums[i];
+                nums[i] = temp;
                 idx++;
             }
         }
-        
-        System.arraycopy(result, 0, nums, 0, result.length);
         
         System.out.println(Arrays.toString(nums));
     }
