@@ -16,9 +16,7 @@ class Solution {
         }
         if(isCarry) {
             int[] copyArr = new int[digits.length +1];
-            for (int i = 0; i < digits.length; i++) {
-                copyArr[i+1] = digits[i];
-            }
+            System.arraycopy(digits, 0, copyArr, 1, copyArr.length - 1);
             copyArr[0] = 1;
             digits = copyArr;
         }
