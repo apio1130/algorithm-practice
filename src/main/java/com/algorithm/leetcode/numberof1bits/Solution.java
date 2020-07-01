@@ -1,7 +1,5 @@
 package com.algorithm.leetcode.numberof1bits;
 
-import java.util.Arrays;
-
 /**
  * 191. Number of 1 Bits
  *
@@ -9,9 +7,16 @@ import java.util.Arrays;
 class Solution {
     // you need to treat n as an unsigned value
     public int hammingWeight(int n) {
+        int numb = n;
         int count = 0;
-        String binaryTxt = Integer.toBinaryString(n);
-        count = (int) Arrays.stream(binaryTxt.split("")).filter("1"::equals).count();
+        for (int i = 0; i < 32; i++) {
+            int temp = numb & 1;
+            if (temp == 1) {
+                count++;
+            }
+            numb >>= 1;
+        }
+        
         return count;
     }
     
