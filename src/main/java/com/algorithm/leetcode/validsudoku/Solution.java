@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * 36. Valid Sudoku
  */
-public class Solution {
+class Solution {
     public boolean isValidSudoku(char[][] board) {
         if (checkV(board, 0) && checkH(board, 0) && checkThreeByThree(board, 0)) {
             return true;

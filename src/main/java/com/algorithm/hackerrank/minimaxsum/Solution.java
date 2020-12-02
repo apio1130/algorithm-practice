@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 /**
  * Mini-Max Sum
  */
-public class Solution {
+class Solution {
 
     // Complete the miniMaxSum function below.
     static void miniMaxSum(int[] arr) {

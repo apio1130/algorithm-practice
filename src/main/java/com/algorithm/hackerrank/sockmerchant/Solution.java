@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  * Sock Merchant
  *
  */
-public class Solution {
+class Solution {
 
     // Complete the sockMerchant function below.
     static int sockMerchant(int n, int[] ar) {

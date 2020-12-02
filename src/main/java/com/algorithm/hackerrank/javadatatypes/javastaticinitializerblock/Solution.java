@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Java Static Initializer Block
  *
  */
-public class Solution {
+class Solution {
 
     // Write your code here
     static int B;
