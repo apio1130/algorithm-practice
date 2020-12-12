@@ -1,27 +1,18 @@
 package com.algorithm.programmers.lessons12916;
 
+import java.util.function.Supplier;
+import java.util.stream.IntStream;
+
 /**
  * 문자열 내 p와 y의 개수
  */
 class Solution {
     boolean solution(String s) {
-        boolean answer = true;
         if (s == null || s.isEmpty()) {
             return true;
         }
 
-        char[] chars = s.toCharArray();
-        int pCount = 0;
-        int yCount = 0;
-
-        for (char c : chars) {
-            if (c == 'y' || c == 'Y') {
-                yCount++;
-            } else if (c == 'p' || c == 'P') {
-                pCount++;
-            }
-        }
-
-        return pCount == yCount;
+        Supplier<IntStream> supplier = s::chars;
+        return supplier.get().filter(i -> i == 'p' || i == 'P').count() == supplier.get().filter(i -> i == 'y' || i == 'Y').count();
     }
 }
