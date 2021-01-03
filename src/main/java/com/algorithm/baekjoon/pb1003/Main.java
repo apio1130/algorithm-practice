@@ -25,17 +25,13 @@ class Main {
         }
 
         Map<Integer, String> values = new HashMap<>();
-        values.put(0, "1 0");
-        values.put(1, "0 1");
-        values.put(2, "1 1");
-
         int zero = 1;
-        int one = 1;
-        for (int i = 3; i <= max; i++) {
+        int one = 0;
+        for (int i = 0; i <= max; i++) {
+            values.put(i, zero + " " + one);
             int temp = one;
             one = zero + one;
             zero = temp;
-            values.put(i, zero + " " + one);
         }
 
         StringBuilder sb = new StringBuilder();
