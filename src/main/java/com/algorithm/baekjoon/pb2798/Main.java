@@ -1,38 +1,41 @@
 package com.algorithm.baekjoon.pb2798;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Scanner;
-import java.util.Stack;
 
 /**
  * 블랙잭
  */
 class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] nm = br.readLine().split(" ");
+        int n = Integer.parseInt(nm[0]);
+        int m = Integer.parseInt(nm[1]);
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String[] inputNM = sc.nextLine().split(" ");
-        int N = Integer.parseInt(inputNM[0]);
-        int M = Integer.parseInt(inputNM[1]);
+        String cards = br.readLine();
+        int[] nums = Arrays.stream(cards.split(" ")).mapToInt(Integer::parseInt).sorted().toArray();
+        int max = 0;
 
-        String cardText = sc.nextLine();
-        int[] cards = Arrays.stream(cardText.split(" ")).mapToInt(Integer::parseInt).sorted().toArray();
+        repeat:
+        for (int i = 0; i < n - 2; i++) {
+            for (int j = i + 1; j < n - 1; j++) {
+                for (int k = j + 1; k < n; k++) {
+                    int sum = nums[i] + nums[j] + nums[k];
+                    if (sum == m) {
+                        max = sum;
+                        break repeat;
+                    }
 
-        Stack<Integer> stack = new Stack<>();
-        for (int i = 0; i < cards.length - 2; i++) {
-            int first = cards[i];
-            for (int j = i + 1; j < cards.length - 1; j++) {
-                int secd = cards[j];
-                for (int k = j + 1; k < cards.length; k++) {
-                    int thrd = cards[k];
-                    int sum = first + secd + thrd;
-                    int temp = stack.size() == 0 ? 0 : stack.peek();
-                    if (sum <= M && sum > temp) {
-                        stack.push(sum);
+                    if (sum > max && sum <= m) {
+                        max = sum;
                     }
                 }
             }
         }
-        System.out.println(stack.pop());
+
+        System.out.println(max);
     }
 }
