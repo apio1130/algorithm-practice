@@ -35,13 +35,10 @@ class Main {
         int temp = target;
         list.add(temp);
 
-        while (true) {
+        do {
             temp = (temp * a) % 10;
             list.add(temp);
-            if (target == temp) {
-                break;
-            }
-        }
+        } while (target != temp);
 
         int idx = b % (list.size() - 1);
         int result = idx == 0 ? list.get(list.size() - 2) : list.get(idx - 1);
