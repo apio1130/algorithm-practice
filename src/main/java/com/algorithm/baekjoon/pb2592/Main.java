@@ -43,8 +43,8 @@ class Main {
 
     private static int getAvg(int[] numArr) {
         int sum = 0;
-        for (int j : numArr) {
-            sum += j;
+        for (int num : numArr) {
+            sum += num;
         }
         return sum / 10;
     }
