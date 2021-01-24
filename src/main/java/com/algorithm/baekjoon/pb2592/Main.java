@@ -17,24 +17,20 @@ class Main {
             numArr[i] = Integer.parseInt(br.readLine());
         }
         int avg = getAvg(numArr);
-        ;
         int mode = getMode(numArr);
 
         System.out.println(avg);
         System.out.println(mode);
-
     }
 
     private static int getMode(int[] numArr) {
         Map<Integer, Integer> countMap = new HashMap<>();
-        for (int i = 0; i < numArr.length; i++) {
-            int key = numArr[i];
+        for (int key : numArr) {
             int value = countMap.getOrDefault(key, 0);
             countMap.put(key, value + 1);
         }
         int max = 0;
         int result = 0;
-
         for (int key : countMap.keySet()) {
             int count = countMap.get(key);
             if (count > max) {
@@ -42,7 +38,6 @@ class Main {
                 result = key;
             }
         }
-
         return result;
     }
 
