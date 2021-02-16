@@ -38,7 +38,7 @@ class Solution {
         values.add(String.valueOf(node.val));
 
         if (node.left == null && node.right == null) {
-            result.add(values.stream().reduce((a, b) -> String.join("->", a, b)).get());
+            result.add(String.join("->", values));
         } else {
             findPath(node.left, new ArrayList<>(values), result);
             findPath(node.right, new ArrayList<>(values), result);
