@@ -1,14 +1,11 @@
 package com.algorithm.leetcode.validpalindrome;
 
-import java.util.regex.Pattern;
-
 /**
  * 125. Valid Palindrome
  */
 class Solution {
     public boolean isPalindrome(String s) {
-        Pattern p = Pattern.compile("[^a-z0-9]");
-        String convertedText = s.toLowerCase().replaceAll(p.pattern(), "");
+        String convertedText = s.toLowerCase().replaceAll("[^a-z0-9]", "");
         int length = convertedText.length();
 
         for(int i = 0; i < length / 2; i++) {
