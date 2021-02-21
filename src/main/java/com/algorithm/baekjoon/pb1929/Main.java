@@ -17,14 +17,9 @@ class Main {
         nonPrimeArr[0] = true;
         nonPrimeArr[1] = true;
 
-        for (int i = 2; i <= end; i++) {
-            for (int j = 2; j <= end; j++) {
-                if (i * j > end) {
-                    break;
-                }
-                if (!nonPrimeArr[i*j]) {
-                    nonPrimeArr[i*j] = true;
-                }
+        for (int i = 2; i < Math.sqrt(end); i++) {
+            for (int j = i*i; j <= end; j+=i) {
+                nonPrimeArr[j] = true;
             }
         }
 
