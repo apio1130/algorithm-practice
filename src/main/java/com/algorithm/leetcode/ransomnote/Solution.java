@@ -1,24 +1,30 @@
 package com.algorithm.leetcode.ransomnote;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * 383. Ransom Note
  */
 class Solution {
     public boolean canConstruct(String ransomNote, String magazine) {
-        Map<Character, Integer> map = new HashMap<>();
-        for (char c : magazine.toCharArray()) {
-            map.put(c, map.getOrDefault(c, 0) + 1);
-        }
-        for (char c : ransomNote.toCharArray()) {
-            int count = map.getOrDefault(c, 0) - 1;
-            if (count < 0) {
-                return false;
+        char[] mgzArr = magazine.toCharArray();
+        char[] rnArr = ransomNote.toCharArray();
+
+        for (int i = 0; i < rnArr.length; i++) {
+            char curr = rnArr[i];
+            for (int j = 0; j < mgzArr.length; j++) {
+                if (mgzArr[j] == curr) {
+                    mgzArr[j] = ' ';
+                    rnArr[i] = ' ';
+                    break;
+                }
             }
-            map.put(c, count);
         }
-        return true;
+        return new String(rnArr).trim().length() == 0;
+    }
+
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        String ransomNote = "aabb";
+        String magazine = "cbaa";
+        System.out.println(s.canConstruct(ransomNote, magazine));
     }
 }
