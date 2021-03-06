@@ -5,26 +5,22 @@ package com.algorithm.leetcode.ransomnote;
  */
 class Solution {
     public boolean canConstruct(String ransomNote, String magazine) {
-        char[] mgzArr = magazine.toCharArray();
-        char[] rnArr = ransomNote.toCharArray();
-
-        for (int i = 0; i < rnArr.length; i++) {
-            char curr = rnArr[i];
-            for (int j = 0; j < mgzArr.length; j++) {
-                if (mgzArr[j] == curr) {
-                    mgzArr[j] = ' ';
-                    rnArr[i] = ' ';
-                    break;
-                }
+        int[] countArr = new int[26];
+        for (char c : magazine.toCharArray()) {
+            countArr[c - 'a']++;
+        }
+        for (char c : ransomNote.toCharArray()) {
+            if (--countArr[c - 'a'] < 0) {
+                return false;
             }
         }
-        return new String(rnArr).trim().length() == 0;
+        return true;
     }
 
     public static void main(String[] args) {
         Solution s = new Solution();
         String ransomNote = "aabb";
-        String magazine = "cbaa";
+        String magazine = "bbaa";
         System.out.println(s.canConstruct(ransomNote, magazine));
     }
 }
