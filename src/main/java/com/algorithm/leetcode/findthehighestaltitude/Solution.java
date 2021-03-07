@@ -9,10 +9,7 @@ class Solution {
         int max = 0;
 
         for (int a : gain) {
-            start += a;
-            if (max < start) {
-                max = start;
-            }
+            max = Math.max(start += a, max);
         }
         return max;
     }
