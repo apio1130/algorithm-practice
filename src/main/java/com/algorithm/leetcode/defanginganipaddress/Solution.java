@@ -5,7 +5,7 @@ package com.algorithm.leetcode.defanginganipaddress;
  */
 class Solution {
     public String defangIPaddr(String address) {
-        // 내부적으로 StringBuilder 로 replase 작업
+        // 내부적으로 StringBuilder 로 replace 작업
         return address.replace(".", "[.]");
     }
 }
