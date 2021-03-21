@@ -1,13 +1,14 @@
 package com.algorithm.leetcode.createtargetarrayinthegivenorder;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 1389. Create Target Array in the Given Order
  */
 class Solution {
     public int[] createTargetArray(int[] nums, int[] index) {
-        LinkedList<Integer> list = new LinkedList<>();
+        List<Integer> list = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
             list.add(index[i], nums[i]);
         }
