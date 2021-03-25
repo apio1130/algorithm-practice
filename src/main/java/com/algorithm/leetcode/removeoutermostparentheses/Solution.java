@@ -14,7 +14,7 @@ class Solution {
                 if (count > 1) {
                     sb.append(c);
                 }
-            } else if (c == ')') {
+            } else {
                 if (count > 1) {
                     sb.append(c);
                 }
