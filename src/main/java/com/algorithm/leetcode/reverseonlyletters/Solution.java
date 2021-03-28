@@ -11,9 +11,9 @@ class Solution {
         int right = chars.length - 1;
         while (left < right) {
             char lc = chars[left];
-            if ((lc >= 'a' && lc <= 'z') || (lc >= 'A' && lc <= 'Z')) {
+            if (Character.isLetter(lc)) {
                 char rc = chars[right];
-                while (!((rc >= 'a' && rc <= 'z') || (rc >= 'A' && rc <= 'Z'))) {
+                while (!Character.isLetter(rc)) {
                     rc = chars[--right];
                 }
                 chars[left] = chars[right];
