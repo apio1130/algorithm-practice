@@ -11,7 +11,7 @@ class Solution {
         for(int i = 0; i < image.length; i++) {
             int length = image[i].length;
             for (int j = 0; j < length; j++) {
-                image[i][j] = image[i][j] == 0 ? 1 : 0;
+                image[i][j] ^= 1;
             }
             for (int j = 0; j < length; j++) {
                 result[i][j] = image[i][length - j - 1];
