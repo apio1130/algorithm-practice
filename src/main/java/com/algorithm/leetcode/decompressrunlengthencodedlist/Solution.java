@@ -1,24 +1,20 @@
 package com.algorithm.leetcode.decompressrunlengthencodedlist;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 1313. Decompress Run-Length Encoded List
  */
 class Solution {
     public int[] decompressRLElist(int[] nums) {
-        int size = 0;
+        List<Integer> list = new ArrayList<>();
         for (int i = 0; i < nums.length / 2; i++) {
-            size += nums[2 * i];
-        }
-        int[] result = new int[size];
-        int start = 0;
-        for (int i = 0; i < nums.length / 2; i++) {
-            int freq = nums[2 * i];
-            int val = nums[2 * i + 1];
-            for (int j = 0; j < freq; j++) {
-                result[start + j] = val;
+            for (int j = 0; j < nums[2 * i]; j++) {
+                list.add(nums[2 * i + 1]);
             }
-            start += freq;
         }
-        return result;
+
+        return list.stream().mapToInt(n -> n).toArray();
     }
 }
