@@ -13,20 +13,19 @@ class Main {
         int count = Integer.parseInt(br.readLine());
         int[] inputs = new int[count];
 
+        int sum = 0;
         int idx = 0;
         for (int i = 0; i < count; i++) {
             int temp = Integer.parseInt(br.readLine());
             if (temp == 0) {
-                inputs[--idx] = temp;
+                sum -= inputs[--idx];
+                inputs[idx] = temp;
             } else {
                 inputs[idx++] = temp;
+                sum += temp;
             }
         }
 
-        int sum = 0;
-        for (int i = 0; i < count; i++) {
-            sum += inputs[i];
-        }
         System.out.println(sum);
     }
 }
