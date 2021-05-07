@@ -9,15 +9,31 @@ import java.io.InputStreamReader;
 class Main {
 	public static void main(String... args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int input = Integer.parseInt(br.readLine(), 8);
-		StringBuilder sb = new StringBuilder();
-		while (input > 0) {
-			int mod = input % 2;
-			input /= 2;
-			sb.append(mod);
+		String octal = br.readLine();
+		if ("0".equals(octal)) {
+			System.out.println(octal);
+		} else {
+
+			StringBuilder sb = new StringBuilder();
+			for (int i = 0; i < octal.length(); i++) {
+				int[] numArr = new int[3];
+				int temp = Integer.parseInt(octal.substring(i, i + 1));
+				int idx = 2;
+				while (temp > 0) {
+					numArr[idx--] = temp % 2;
+					temp /= 2;
+				}
+				sb.append(numArr[0]).append(numArr[1]).append(numArr[2]);
+			}
+			int startIdx = 0;
+			for (int i = 0; i < sb.length(); i++) {
+				if (sb.charAt(i) != '0') {
+					break;
+				} else {
+					startIdx++;
+				}
+			}
+			System.out.println(sb.toString().substring(startIdx));
 		}
-		sb.reverse();
-		String result = sb.toString().charAt(0) == 0 ? sb.toString().substring(1) : sb.toString();
-		System.out.println(result);
 	}
 }
