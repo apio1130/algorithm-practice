@@ -12,13 +12,13 @@ class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int y = 0;
-		int m = 0;
+		int y = 0; // 30 - 10
+		int m = 0; // 60 - 15
 
 		for (int i = 0; i < n; i++) {
 			double temp = Double.parseDouble(st.nextToken());
-			y += Math.ceil(temp / 30) * 10;
-			m += Math.ceil(temp / 60) * 15;
+			y += Math.ceil((temp + 1) / 30) * 10;
+			m += Math.ceil((temp + 1) / 60) * 15;
 		}
 
 		if (y == m) {
