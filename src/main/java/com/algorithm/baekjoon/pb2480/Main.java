@@ -19,18 +19,18 @@ class Main {
 				max = nums[i];
 			}
 		}
+		int result = getMoney(nums, max);
+		System.out.println(result);
+	}
 
-		int a = nums[0];
-		int b = nums[1];
-		int c = nums[2];
-
-		if (a == b && b == c) {
-			System.out.println(10000 + a * 1000);
-		} else if (a == b || b == c || a == c) {
-			int temp = a == b ? a : b;
-			System.out.println(1000 + temp * 100);
+	private static int getMoney(int[] nums, int max) {
+		if (nums[0] == nums[1] && nums[0] == nums[2]) {
+			return nums[0] * 1000 + 10000;
+		} else if (nums[0] == nums[1] || nums[1] == nums[2] || nums[0] == nums[2]) {
+			int temp = nums[0] == nums[1] ? nums[0] : nums[2];
+			return 1000 + temp * 100;
 		} else {
-			System.out.println(max * 100);
+			return max * 100;
 		}
 	}
 }
