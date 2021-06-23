@@ -3,7 +3,7 @@ package com.algorithm.programmers.lessons12931;
 /**
  *  자릿수 더하기
  */
-public class Solution {
+class Solution {
     public int solution(int n) {
         int answer = 0;
 
