@@ -2,7 +2,7 @@ package com.algorithm.baekjoon.pb13458;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.util.StringTokenizer;
 
 /**
  * 시험 감독
@@ -12,19 +12,18 @@ class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		int n = Integer.parseInt(br.readLine());
-		int[] a = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+		int[] a = new int[n];
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		for (int i = 0; i < n; i++) {
+			a[i] = Integer.parseInt(st.nextToken());
+		}
 		String[] temp = br.readLine().split(" ");
 		int b = Integer.parseInt(temp[0]);
 		int c = Integer.parseInt(temp[1]);
 
-		int cnt = 0;
-		for (int i = 0; i < a.length; i++) {
-			int target = a[i] - b;
-			cnt++;
-			while (target > 0) {
-				target -= c;
-				cnt++;
-			}
+		long cnt = 0;
+		for (int t : a) {
+			cnt += t < b ? 1 : 1 + Math.ceil((double)(t - b) / c);
 		}
 
 		System.out.println(cnt);
