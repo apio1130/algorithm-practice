@@ -1,5 +1,6 @@
 package com.algorithm.programmers.lessons86051;
 
+import java.util.function.Supplier;
 import java.util.stream.IntStream;
 
 /**
@@ -7,8 +8,9 @@ import java.util.stream.IntStream;
  */
 class Solution {
 	public int solution(int[] numbers) {
+		Supplier<IntStream> supplier = () -> IntStream.of(numbers);
 		return IntStream.rangeClosed(0, 9)
-						 .filter(num -> IntStream.of(numbers).noneMatch(n -> n == num))
+						 .filter(num -> supplier.get().noneMatch(n -> n == num))
 						 .sum();
 	}
 
