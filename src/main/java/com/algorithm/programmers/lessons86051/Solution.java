@@ -7,9 +7,9 @@ import java.util.stream.IntStream;
  */
 class Solution {
 	public int solution(int[] numbers) {
-		int totalSum = IntStream.range(0,10).sum();
-		int sum = IntStream.of(numbers).sum();
-		return totalSum - sum;
+		return IntStream.rangeClosed(0, 9)
+						 .filter(num -> IntStream.of(numbers).noneMatch(n -> n == num))
+						 .sum();
 	}
 
 	public static void main(String... args) {
