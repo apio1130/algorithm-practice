@@ -5,20 +5,15 @@ package com.algorithm.leetcode.numbercomplement;
  */
 class Solution {
     public int findComplement(int num) {
-        StringBuilder sb = new StringBuilder();
+        int length = 0;
+        int temp = num;
 
-        while (num != 0) {
-            sb.append(num % 2);
-            num /= 2;
+        while (temp > 0) {
+            temp = temp >> 1;
+            length++;
         }
 
-        StringBuilder result = new StringBuilder();
-
-        for (int i = sb.length() -1; i >= 0; i--) {
-            result.append('0' == sb.charAt(i) ? '1' : '0');
-        }
-
-        return Integer.parseInt(result.toString(), 2);
+        return ((1 << length) -1) ^ num;
     }
 
     public static void main(String... args) {
