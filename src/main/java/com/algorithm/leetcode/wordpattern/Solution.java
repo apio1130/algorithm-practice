@@ -20,7 +20,7 @@ class Solution {
         for (char p : pArr) {
             String token = st.nextToken();
             if (!map.containsKey(p)) {
-                if (map.containsValue(p)) {
+                if (map.containsValue(token)) {
                     return false;
                 }
                 map.put(p, token);
